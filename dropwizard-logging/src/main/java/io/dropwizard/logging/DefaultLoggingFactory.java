@@ -170,6 +170,10 @@ public class DefaultLoggingFactory implements LoggingFactory {
             CHANGE_LOGGER_CONTEXT_LOCK.unlock();
         }
     }
+    
+    public void tiaTest() {
+        return this.level;
+    }
 
     private void configureInstrumentation(Logger root, MetricRegistry metricRegistry) {
         final InstrumentedAppender appender = new InstrumentedAppender(metricRegistry);
