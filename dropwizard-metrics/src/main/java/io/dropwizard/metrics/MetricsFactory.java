@@ -68,8 +68,8 @@ public class MetricsFactory {
         this.frequency = frequency;
     }
     
-    public void logSomething() {
-        LOGGER.info("SOME CHANGE");
+    public void logSomething2() {
+        LOGGER.info("SOME CHANGE 2");
     }
 
     /**
@@ -91,7 +91,7 @@ public class MetricsFactory {
                         new ScheduledReporterManager(reporter.build(registry),
                                                      reporter.getFrequency().orElseGet(this::getFrequency));
                 environment.manage(manager);
-                this.logSomething();
+                this.logSomething2();
             } catch (Exception e) {
                 LOGGER.warn("Failed to create reporter, metrics may not be properly reported.", e);
             }
