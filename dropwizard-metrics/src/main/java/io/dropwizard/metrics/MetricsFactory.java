@@ -67,6 +67,10 @@ public class MetricsFactory {
     public void setFrequency(Duration frequency) {
         this.frequency = frequency;
     }
+    
+    public void logSomething() {
+        LOGGER.info("SOME CHANGE");
+    }
 
     /**
      * Configures the given lifecycle with the {@link com.codahale.metrics.ScheduledReporter
@@ -87,6 +91,7 @@ public class MetricsFactory {
                         new ScheduledReporterManager(reporter.build(registry),
                                                      reporter.getFrequency().orElseGet(this::getFrequency));
                 environment.manage(manager);
+                this.logSomething();
             } catch (Exception e) {
                 LOGGER.warn("Failed to create reporter, metrics may not be properly reported.", e);
             }
